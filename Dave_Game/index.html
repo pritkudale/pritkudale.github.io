@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dangerous Dave Web Edition</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="cabinet">
+      <header class="titlebar">
+        <h1>Dangerous Dave Web Edition</h1>
+        <p>Classic-style side-scrolling action platformer</p>
+      </header>
+
+      <section class="hud" aria-live="polite">
+        <div id="levelLabel">Level 1/3</div>
+        <div id="scoreLabel">Score 0</div>
+        <div id="livesLabel">Lives 3</div>
+        <div id="itemLabel">Trophies 0/0 | Key No</div>
+        <div id="ammoLabel">Ammo 0</div>
+      </section>
+
+      <section class="screen-wrap">
+        <canvas id="game" width="320" height="240" aria-label="Dangerous Dave style game"></canvas>
+        <section id="overlay" class="overlay">
+          <h2 id="overlayTitle">Dangerous Dave Web Edition</h2>
+          <p id="overlayText">
+            Collect all trophies, find the key, and reach the door. Avoid enemies and spikes.
+          </p>
+          <button id="actionBtn" type="button">Start Game</button>
+        </section>
+      </section>
+
+      <section class="controls-help">
+        <p>Move: <strong>Arrow Left/Right</strong> or <strong>A/D</strong></p>
+        <p>Jump/Climb: <strong>Arrow Up</strong> or <strong>W</strong> or <strong>Space</strong></p>
+        <p>Shoot: <strong>F</strong> or <strong>K</strong> (after collecting gun)</p>
+        <p>Jetpack: <strong>Shift</strong> (after collecting fuel)</p>
+      </section>
+
+      <section class="touch-controls" aria-label="Touch controls">
+        <button id="btnLeft" type="button">Left</button>
+        <button id="btnRight" type="button">Right</button>
+        <button id="btnJump" type="button">Jump</button>
+        <button id="btnShoot" type="button">Shoot</button>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
