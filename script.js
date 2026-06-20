@@ -258,10 +258,58 @@ function reveal() {
     });
 }
 
+// ===== Project Slideshows =====
+function initSlideshows() {
+    const slideshows = document.querySelectorAll('[data-slideshow]');
+
+    slideshows.forEach(slideshow => {
+        const slides = Array.from(slideshow.querySelectorAll('.project-slide'));
+        if (slides.length <= 1) return;
+
+        // Build dot indicators
+        const dots = document.createElement('div');
+        dots.className = 'slide-dots';
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Show image ${i + 1}`);
+            dot.addEventListener('click', () => goToSlide(i, true));
+            dots.appendChild(dot);
+        });
+        slideshow.appendChild(dots);
+
+        let current = 0;
+        let timer = null;
+        const interval = 3500;
+
+        function goToSlide(index, restart) {
+            slides[current].classList.remove('active');
+            dots.children[current].classList.remove('active');
+            current = (index + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            dots.children[current].classList.add('active');
+            if (restart) startTimer();
+        }
+
+        function startTimer() {
+            if (timer) clearInterval(timer);
+            timer = setInterval(() => goToSlide(current + 1, false), interval);
+        }
+
+        startTimer();
+
+        // Pause auto-advance while interacting with the card
+        slideshow.addEventListener('mouseenter', () => clearInterval(timer));
+        slideshow.addEventListener('mouseleave', startTimer);
+    });
+}
+
 // ===== Initial Load =====
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
     initRevealDelays();
+    initSlideshows();
     reveal();
     handleScroll();
 });
