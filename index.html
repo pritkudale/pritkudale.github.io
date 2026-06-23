@@ -355,8 +355,8 @@
                         </div>
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="http://13.233.231.199/" target="_blank" rel="noopener noreferrer" class="project-link" title="View Demo">
-                                    <i class="fas fa-external-link-alt"></i>
+                                <a href="#" class="project-link" title="Watch Demo" data-video="Images/Image Recommendation System.mp4" aria-label="Watch VisionRec demo video">
+                                    <i class="fas fa-play"></i>
                                 </a>
                                 <a href="#contact" class="project-link" title="Request details">
                                     <i class="fas fa-envelope"></i>
@@ -522,35 +522,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Churn Prediction -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder" aria-hidden="true">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#contact" class="project-link" title="Request details">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Driver Churn Prediction</h3>
-                        <p>
-                            Built churn models for a ride-hailing driver dataset using Random Forest and GBDT.
-                            Achieved <strong>88% F1</strong> and <strong>86% ROC-AUC</strong> with tuning and feature engineering.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Random Forest</span>
-                            <span class="tag">GBDT</span>
-                            <span class="tag">Feature Engineering</span>
-                            <span class="tag">Evaluation</span>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="projects-cta">
@@ -691,6 +662,19 @@
     <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </a>
+
+    <!-- Video Lightbox -->
+    <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Project demo video" aria-hidden="true">
+        <div class="video-modal-backdrop" data-close-video></div>
+        <div class="video-modal-content">
+            <button type="button" class="video-modal-close" aria-label="Close video" data-close-video>
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="video-modal-player" controls playsinline preload="none">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

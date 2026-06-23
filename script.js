@@ -305,6 +305,50 @@ function initSlideshows() {
     });
 }
 
+// ===== Video Lightbox =====
+const videoModal = document.getElementById('video-modal');
+const videoPlayer = document.getElementById('video-modal-player');
+
+function openVideo(src) {
+    if (!videoModal || !videoPlayer || !src) return;
+    videoPlayer.src = src;
+    videoModal.classList.add('active');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const playPromise = videoPlayer.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+    }
+}
+
+function closeVideo() {
+    if (!videoModal || !videoPlayer) return;
+    videoModal.classList.remove('active');
+    videoModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    videoPlayer.pause();
+    videoPlayer.removeAttribute('src');
+    videoPlayer.load();
+}
+
+document.querySelectorAll('[data-video]').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openVideo(trigger.getAttribute('data-video'));
+    });
+});
+
+if (videoModal) {
+    videoModal.querySelectorAll('[data-close-video]').forEach(el => {
+        el.addEventListener('click', closeVideo);
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            closeVideo();
+        }
+    });
+}
+
 // ===== Initial Load =====
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
