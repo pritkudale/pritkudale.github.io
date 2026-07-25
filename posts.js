@@ -131,6 +131,14 @@
                     (m.poster ? ' poster="' + MEDIA_DIR + m.poster + '"' : '') +
                     '><source src="' + src + '" type="video/mp4"></video>';
             }
+            if (m.kind === 'thumb') {
+                return '<a class="post-linkcard" href="' + esc(m.href || p.sharedUrl) +
+                    '" target="_blank" rel="noopener noreferrer">' +
+                    '<img src="' + src + '" loading="lazy" decoding="async" alt="YouTube thumbnail: ' +
+                    alt + '">' +
+                    '<span class="linkcard-badge"><i class="fab fa-youtube" aria-hidden="true"></i>' +
+                    'Watch on YouTube</span></a>';
+            }
             return '<a class="post-doc" href="' + src + '" target="_blank" rel="noopener">' +
                 '<i class="fas fa-file-pdf" aria-hidden="true"></i><span>View document (PDF)</span></a>';
         });

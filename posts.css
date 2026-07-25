@@ -270,6 +270,49 @@
     cursor: zoom-in;
 }
 
+.post-linkcard {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(108, 99, 255, 0.15);
+    transition: var(--transition);
+}
+
+.post-linkcard:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.post-linkcard img {
+    width: 100%;
+    display: block;
+    border: none;
+    border-radius: 0;
+}
+
+.linkcard-badge {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background: rgba(10, 10, 15, 0.85);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.linkcard-badge .fa-youtube {
+    color: #ff0033;
+    font-size: 1.1rem;
+}
+
 .post-doc {
     display: inline-flex;
     align-items: center;
