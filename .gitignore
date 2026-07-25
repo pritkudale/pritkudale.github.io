@@ -1,0 +1,5 @@
+# Private LinkedIn data exports and processing artifacts — never commit
+data/
+
+# macOS
+.DS_Store

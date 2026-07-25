@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Archive of LinkedIn posts by Pritam Kudale — AI/ML engineering insights on GenAI, LLMs, machine learning, and computer vision.">
+    <title>Posts | Pritam Kudale</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="posts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Go to home">
+                <span class="logo-text">PK</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="index.html#projects" class="nav-link">Work</a></li>
+                <li class="nav-item"><a href="index.html#credentials" class="nav-link">Credentials</a></li>
+                <li class="nav-item"><a href="posts.html" class="nav-link active">Posts</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" aria-label="Open navigation menu" role="button" tabindex="0" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="posts-hero">
+        <div class="container">
+            <h1 class="section-title">LinkedIn Posts</h1>
+            <p class="section-subtitle">
+                My writing on AI/ML, GenAI, and engineering — archived from
+                <a href="https://www.linkedin.com/in/pritam-kudale/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light);">LinkedIn</a>,
+                deduplicated and searchable.
+            </p>
+        </div>
+    </header>
+
+    <!-- Search & Filters -->
+    <div class="posts-controls">
+        <div class="container">
+            <div class="posts-search-wrap">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="search" id="posts-search" placeholder="Search posts… (e.g. FAISS, LLM router, regression)" autocomplete="off" aria-label="Search posts">
+                <button class="posts-search-clear" id="posts-search-clear" aria-label="Clear search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="posts-filters" id="year-filters">
+                <button class="filter-chip active" data-group="year" data-value="all" aria-pressed="true">All years</button>
+                <!-- year chips injected by posts.js -->
+            </div>
+            <div class="posts-filters" style="margin-top: 8px;">
+                <button class="filter-chip active" data-group="kind" data-value="all" aria-pressed="true">All types</button>
+                <button class="filter-chip" data-group="kind" data-value="image" aria-pressed="false"><i class="far fa-image" aria-hidden="true"></i> Images</button>
+                <button class="filter-chip" data-group="kind" data-value="video" aria-pressed="false"><i class="fas fa-video" aria-hidden="true"></i> Videos</button>
+                <button class="filter-chip" data-group="kind" data-value="document" aria-pressed="false"><i class="far fa-file-pdf" aria-hidden="true"></i> Documents</button>
+            </div>
+            <p class="posts-count" id="posts-count" aria-live="polite"></p>
+        </div>
+    </div>
+
+    <!-- Feed -->
+    <main class="container">
+        <div class="posts-feed" id="posts-feed"></div>
+    </main>
+
+    <!-- Screen-reader announcements (copy-link feedback etc.) -->
+    <div id="sr-status" class="sr-only" aria-live="polite"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">PK</span>
+                </div>
+                <p class="footer-text">Built & maintained by Pritam Kudale</p>
+                <p class="footer-copyright">&copy; <span id="year"></span> All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    <!-- Image Lightbox -->
+    <div class="img-modal" id="img-modal" role="dialog" aria-modal="true" aria-label="Image preview">
+        <div class="img-modal-backdrop"></div>
+        <button type="button" class="img-modal-close" aria-label="Close image">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Full-size post image">
+    </div>
+
+    <script src="posts-data.js"></script>
+    <script src="posts.js" defer></script>
+</body>
+</html>
